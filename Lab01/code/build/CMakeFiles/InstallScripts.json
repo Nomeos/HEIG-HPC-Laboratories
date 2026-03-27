@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/nomeos/Documents/HEIG/SEM6/HPC/HEIG-HPC-Laboratories/Lab01/code/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

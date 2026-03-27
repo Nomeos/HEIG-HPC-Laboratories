@@ -1,0 +1,18 @@
+SHORT
+Roofline minimal metrics
+
+EVENTSET
+FIXC1 CPU_CLK_UNHALTED_CORE
+PMC0 FP_ARITH_INST_RETIRED_SCALAR_DOUBLE
+PMC1 MEM_LOAD_RETIRED_L3_MISS
+PMC2 MEM_INST_RETIRED_ALL_STORES
+
+METRICS
+Time = FIXC1 / CPU_FREQ
+FLOPs = PMC0
+Bytes_read = PMC1 * 64
+Bytes_write = PMC2 * 8
+Bytes = Bytes_read + Bytes_write
+Performance = FLOPs / Time
+Bandwidth = Bytes / Time
+AI = FLOPs / Bytes
