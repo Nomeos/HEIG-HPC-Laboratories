@@ -75,26 +75,20 @@ int main(int argc, char** argv) {
     double* x = (double*)aligned_malloc(64, n * sizeof(double));
     double* y = (double*)aligned_malloc(64, n * sizeof(double));
     init_arrays(x, y, n);
-    LIKWID_MARKER_INIT;
     LIKWID_MARKER_START("hpc_stride");
     run_stride(x, y, n, stride);
     LIKWID_MARKER_STOP("hpc_stride");
-    LIKWID_MARKER_CLOSE;
     free(x); free(y);
   }
   else if (strcmp(mode, "rowmajor") == 0) {
-    LIKWID_MARKER_INIT;
     LIKWID_MARKER_START("rowmajor");
     run_rowmajor(parse_szt(argv[2]));
     LIKWID_MARKER_STOP("rowmajor");
-    LIKWID_MARKER_CLOSE;
   }
   else if (strcmp(mode, "colmajor") == 0) {
-    LIKWID_MARKER_INIT;
     LIKWID_MARKER_START("colmajor");
     run_colmajor(parse_szt(argv[2]));
     LIKWID_MARKER_STOP("colmajor");
-    LIKWID_MARKER_CLOSE;
   }
   else {
     fprintf(stderr, "Unknown mode: %s\n", mode);
